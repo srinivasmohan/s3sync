@@ -115,7 +115,7 @@ logmsg("START: Sync from bucket #{src} [#{confighash['s3src'][1]}] TO #{dest} [#
 AWS.config({
   :region => 'us-west-2',
 	:use_ssl => false, #no ssl maybe faster?
-	:s3_multipart_threshold => 400*1024*1024 #No multipart uploads for objects under this size - Etga gets messay when multipart uploads are done :(
+	:s3_multipart_threshold => 400*1024*1024 #No multipart uploads for objects under this size - Etag gets messay when multipart uploads are done :(
 })
 
 usemd5=confighash.has_key?('usemd5') && confighash['usemd5'] ? true: false
