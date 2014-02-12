@@ -80,5 +80,5 @@ Where -
 * `prefix` - Is the toplevel prefix to sync from Source to Destination buckets
 * `usemd5` - Is true/false - When false, simply copy keys in SRC but not in DST to DST. When True also look at etag/content length from a `HEAD` on the objects.
 
-Then run `nohup /pathto/s3sync.rb` and thats it!
+Then run `nohup /pathto/s3sync.rb &` and thats it!
 
