@@ -1,0 +1,11 @@
+---
+aws_key: YOURKEY
+aws_secret: YOURSECRET
+s3src:
+- YOUR_USWEST_BUCKET
+- s3-us-west-2.amazonaws.com
+s3dest:
+- YOUR_DST_BUCKET
+- s3.amazonaws.com
+prefix: uploads
+usemd5: true
