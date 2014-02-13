@@ -12,6 +12,8 @@ With this Jruby based script, I could get my ~300000 objects bucket (approx 450G
 
 And subsequent syncs (every hour) run in under 10 minutes. The code could do with a lot of cleanup but the gist is when copying between S3 buckets under the same account, its best to use S3 `copy_to` rather than fetch and upload each object - See [S3Object copy_to](http://docs.aws.amazon.com/AWSRubySDK/latest/AWS/S3/S3Object.html#copy_to-instance_method) for details.
 
+Related blog article [Sync S3 buckets in parallel mode via concurrent threads](http://www.onepwr.org/2014/02/12/sync-s3-buckets-in-parallel-mode-via-concurrent-threads/)
+
 Caveats
 =======
 
