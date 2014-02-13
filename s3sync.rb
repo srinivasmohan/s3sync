@@ -1,4 +1,4 @@
-#!/opt/jruby-1.7.10/bin/jruby
+#!/opt/jruby/bin/jruby
 
 require "rubygems"
 require "yaml"
@@ -12,7 +12,7 @@ java_import 'java.util.concurrent.LinkedBlockingQueue'
 java_import 'java.util.concurrent.ThreadPoolExecutor'
 java_import 'java.util.concurrent.TimeUnit'
 
-MAXTHREADS=75
+MAXTHREADS=20
 
 def logmsg(msg)
 	puts "#{Time.now.strftime('%Y%m%d.%H:%M:%S')} - #{msg}" unless msg.nil?
@@ -115,7 +115,7 @@ logmsg("START: Sync from bucket #{src} [#{confighash['s3src'][1]}] TO #{dest} [#
 AWS.config({
   :region => 'us-west-2',
 	:use_ssl => false, #no ssl maybe faster?
-	:s3_multipart_threshold => 400*1024*1024 #No multipart uploads for objects under this size - Etag gets messay when multipart uploads are done :(
+	:s3_multipart_threshold => 400*1024*1024 #No multipart uploads for objects under this size - Etag gets messy when multipart uploads are done :(
 })
 
 usemd5=confighash.has_key?('usemd5') && confighash['usemd5'] ? true: false
