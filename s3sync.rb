@@ -12,7 +12,7 @@ java_import 'java.util.concurrent.LinkedBlockingQueue'
 java_import 'java.util.concurrent.ThreadPoolExecutor'
 java_import 'java.util.concurrent.TimeUnit'
 
-MAXTHREADS=20
+#MAXTHREADS=20 - defaults to 25 now. or override in config.
 
 def logmsg(msg)
 	puts "#{Time.now.strftime('%Y%m%d.%H:%M:%S')} - #{msg}" unless msg.nil?
@@ -143,7 +143,7 @@ if srclist.keys.length==0
 	exit 0
 end
 copyobjects=srclist.keys.each.map { |x| [ x, srclist[x]] }
-
+MAXTHREADS=confighash.has_key?('maxthreads') ? confighash['maxthreads'] : 25 
 tsnow=Time.now
 numObjectsPerThread=(copyobjects.length<= MAXTHREADS) ? copyobjects.length : copyobjects.length/MAXTHREADS
 brokenUp=copyobjects.each_slice(numObjectsPerThread).to_a
